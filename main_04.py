@@ -42,9 +42,7 @@ def read_task(film_id: UUID):
 @app.put("/films/{film_id}", response_model=Film)
 def update_film(film_id: UUID, film_update: Film):
     if film_id in films:
-        updated_film = films[film_id].model_copy(
-            update=film_update.model_dumpdict(exclude_unset=True)
-            )
+        updated_film = films[film_id].model_copy(update=film_update.model_dump(exclude_unset=True))
         films[film_id] = updated_film
         return updated_film
 
@@ -57,6 +55,8 @@ def delete_film(film_id: UUID):
         return films.pop(film_id)
 
     raise HTTPException(status_code=404, detail=F"Фільм з ключем {film_id} не знайдено.")
+
+# some UUID: 86d230d2-56a5-4e87-b2ef-18779dc76454
 
 if __name__ == "__main__":
     import uvicorn
