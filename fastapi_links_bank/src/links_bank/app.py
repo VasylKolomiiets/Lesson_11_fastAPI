@@ -46,7 +46,7 @@ def read_films():
 
 
 @app.get("/films/{film_id}", response_model=Film)
-def read_task(film_id: UUID):
+def read_film(film_id: UUID):
     if film_id in films:
         return films[film_id]
 
