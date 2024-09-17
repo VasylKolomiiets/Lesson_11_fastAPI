@@ -21,9 +21,9 @@ def create_film(film: Film):
     return film
 
 
-@app.get("/films/", response_model=DBDict)
-def read_films():
-    return films
+# @app.get("/films/", response_model=DBDict)
+# def read_films():
+#     return films
 
 
 @app.get("/films/{film_id}", response_model=Film)
