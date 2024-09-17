@@ -1,6 +1,9 @@
 from fastapi  import FastAPI
 
+from .api import router
+
 app = FastAPI()
+app.include_router(router)
 
 @app.get("/")
 def test_root():
@@ -12,8 +15,6 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field, constr, conint
 
 from uuid import UUID, uuid4
-
-app = FastAPI()
 
 
 class Film(BaseModel):

@@ -5,3 +5,5 @@
    А далі - буде видно.
 """
 from fastapi import APIRouter
+
+router = APIRouter()
