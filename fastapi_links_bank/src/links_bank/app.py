@@ -1,5 +1,5 @@
 from fastapi  import FastAPI
-
+from fastapi import FastAPI, HTTPException
 from .api import router
 
 app = FastAPI()
@@ -9,27 +9,7 @@ app.include_router(router)
 def test_root():
     return {"test": "passed_well"}
 
-from typing import NewType
-
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel, Field, constr, conint
-
-from uuid import UUID, uuid4
-
-
-class Film(BaseModel):
-    idu4: UUID | None = None
-    film_title: constr(
-        min_length=2, max_length=20, pattern="^[ а-щА-ЩЬьЮюЯяЇїІіЄєҐґ']*$"
-    )
-    year: int = Field(
-        ..., gt=1900, lt=2500, description="Рік виходу фільму", example=1930
-    )
-    category: constr(min_length=4, max_length=20)
-    my_rate: conint(ge=0, le=10) = 0
-
-
-DBDict = NewType("DBDict", dict[UUID, Film])
+from .models.films import Film, DBDict, uuid4, UUID
 
 films: DBDict = {}
 
