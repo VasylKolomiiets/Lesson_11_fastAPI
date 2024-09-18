@@ -2,10 +2,15 @@
 from fastapi import APIRouter
 
 from ..models.films import Film
+from .. import tables
+
+from ..database import Session    # new line
 
 router = APIRouter(prefix="/films")
 
 
 @router.get("/", response_model=list[Film])
 def read_films():
+    session = Session()
+    films = session.query(tables.Films).all()
     return films

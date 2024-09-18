@@ -4,6 +4,7 @@ from pydantic import BaseModel
 
 from typing import NewType
 
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field, constr, conint
 
 from uuid import UUID, uuid4
