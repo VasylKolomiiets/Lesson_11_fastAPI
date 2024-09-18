@@ -13,4 +13,5 @@ router = APIRouter(prefix="/films")
 def read_films():
     session = Session()
     films = session.query(tables.Films).all()
+    session.close()
     return films
