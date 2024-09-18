@@ -18,3 +18,10 @@
    - database.py
       - added function `get_session()` for further including
 
+### Depends with get_session()
+   - api.films.py
+      - import Depends  
+      - import get_session() 
+      - Session from sqlalchemy.orm
+      - modify `read_films()` Depends-style
+

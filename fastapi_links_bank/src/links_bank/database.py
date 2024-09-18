@@ -18,7 +18,7 @@ Session = sessionmaker(
 )
 
 
-def get_session()-> Session:
+def get_session() -> Session:
     session = Session()
     try:
         return session
