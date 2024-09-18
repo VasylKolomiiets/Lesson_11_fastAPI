@@ -12,3 +12,9 @@
       orm_mode = True
    ```
 
+### session_close__nd__def_get_session_added
+   - api.films.py  
+      - added code `session.close()`  !! it was an error !!
+   - database.py
+      - added function `get_session()` for further including
+
