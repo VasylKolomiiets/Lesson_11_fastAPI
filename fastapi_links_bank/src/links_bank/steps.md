@@ -5,4 +5,10 @@
     - new /films/ get-function created
     - example of all records from ORM reading added.
 
- 
+### orm_mode_set_to_True  
+   - models.films - added parameter 
+   ```python
+   class Settings:
+      orm_mode = True
+   ```
+

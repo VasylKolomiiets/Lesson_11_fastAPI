@@ -21,5 +21,9 @@ class Film(BaseModel):
     category: constr(min_length=4, max_length=20)
     my_rate: conint(ge=0, le=10) = 0
 
+    class Settings:
+        orm_mode = True
+
+
 
 DBDict = NewType("DBDict", dict[UUID, Film])
