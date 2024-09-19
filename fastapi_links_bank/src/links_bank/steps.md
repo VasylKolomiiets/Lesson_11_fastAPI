@@ -1,6 +1,6 @@
 ### film_get_all_from_database
  - app.py commented `read_films`
- - api/films.py 
+ - api.films.py 
     - decorator changed to @router.get("/", response_model=list[Film])
     - new /films/ get-function created
     - example of all records from ORM reading added.
@@ -25,3 +25,9 @@
       - Session from sqlalchemy.orm
       - modify `read_films()` Depends-style
 
+
+### models.films.py class structuring
+   - models.films.py
+      - class FilmCategory(str, Enum) adding
+   - settigs.py actualising
+      - correct claa object creating
