@@ -31,3 +31,14 @@
       - class FilmCategory(str, Enum) adding
    - settigs.py actualising
       - correct claa object creating
+
+### best practice project's structure
+   - api.films.py
+      - move function to services.films.py
+      - rework rout processing using `class FilmsService` into `Depends` style
+      code
+   - services.films.py
+      - create special class `class FilmsService:` for `Depends` including
+      into *api.films.py*
+   
+   Таким чином 'бізнес-логіка' була відокремлена від обробника шляхів ІПЗ (API)
