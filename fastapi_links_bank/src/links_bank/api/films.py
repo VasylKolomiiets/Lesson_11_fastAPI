@@ -7,7 +7,7 @@ from ..models.films import Film, FilmCategory, FilmCreate
 from ..services.films import FilmsService
 
 
-router = APIRouter(prefix="/films")
+router = APIRouter(prefix="/films", tags=['Фільми'])
 
 # not hardcoded `film_category` param magically will be searching in query string
 @router.get("/", response_model=list[Film])

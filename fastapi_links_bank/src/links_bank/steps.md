@@ -78,3 +78,9 @@
    - services.films.py
       - new *put* method adding
       - new *delete* method adding
+
+### Documrntating
+   - app.py
+      - prefix added
+   - api.films.py
+      - tags added
