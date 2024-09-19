@@ -67,3 +67,14 @@
       - create post new `get` metod
    - services.films.py
       - new *get* method adding
+
+### *Update* & *Delete* from CRUD making
+   - app.py 
+      - comment `put` method
+      - comment `delete` method
+   - api.films.py
+      - create post new `put` metod
+      - create post new `delete` metod
+   - services.films.py
+      - new *put* method adding
+      - new *delete* method adding

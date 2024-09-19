@@ -1,6 +1,7 @@
 """Модуль для обробки всіх HTTP-roots для '/films' - тобто фільмів."""
 from fastapi import APIRouter
 from fastapi import Depends
+from fastapi import Response, status
 
 from ..models.films import Film, FilmCategory, FilmCreate
 from ..services.films import FilmsService
@@ -23,3 +24,14 @@ def create_film(film_data: FilmCreate, service: FilmsService = Depends()):
 @router.get("/{film_id}", response_model=Film)
 def read_film(film_id: int, service: FilmsService = Depends()):
     return service.get(film_id)
+
+
+@router.put("/", response_model=Film)
+def update_film(film_id: int, film_data: FilmCreate, service: FilmsService = Depends()):
+    return service.update(film_id, film_data)
+
+
+@router.delete("/{film_id}", response_model=Film)
+def delete_film(film_id: int, service: FilmsService = Depends()):
+    service.delete(film_id)
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
