@@ -18,3 +18,8 @@ def read_films(film_category: FilmCategory | None = None, service: FilmsService 
 @router.post("/", response_model=Film)
 def create_film(film_data: FilmCreate, service: FilmsService = Depends()):
     return service.create(film_data)
+
+
+@router.get("/{film_id}", response_model=Film)
+def read_film(film_id: int, service: FilmsService = Depends()):
+    return service.get(film_id)

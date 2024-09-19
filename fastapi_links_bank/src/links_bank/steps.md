@@ -58,3 +58,12 @@
       - class separation for `CREATE` operation realisation
    - services.films.py
       - new *post* method adding
+
+
+### *Read* from CRUD making
+   - app.py 
+      - comment `get` method
+   - api.films.py
+      - create post new `get` metod
+   - services.films.py
+      - new *get* method adding

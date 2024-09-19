@@ -26,14 +26,14 @@ films: DBDict = {}
 #     return films
 
 
-@app.get("/films/{film_id}", response_model=Film)
-def read_film(film_id: UUID):
-    if film_id in films:
-        return films[film_id]
+# @app.get("/films/{film_id}", response_model=Film)
+# def read_film(film_id: UUID):
+#     if film_id in films:
+#         return films[film_id]
 
-    raise HTTPException(
-        status_code=404, detail=f"Фільм з ключем {film_id} не знайдено."
-    )
+#     raise HTTPException(
+#         status_code=404, detail=f"Фільм з ключем {film_id} не знайдено."
+#     )
 
 
 @app.put("/films/{film_id}", response_model=Film)

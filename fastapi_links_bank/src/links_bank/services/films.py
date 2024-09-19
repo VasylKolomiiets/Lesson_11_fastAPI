@@ -20,6 +20,22 @@ class FilmsService:
         if film_category:
             query = query.filter_by(category=film_category)
         return query.all()
+    
+    def get(self, film_id: int) -> tables.Films:
+        film = (
+            self.session
+            .query(tables.Films)
+            .filter_by(id_4=film_id)
+            .first()
+        )
+
+        if film:
+            return film
+            
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, 
+            detail=f"Фільм з ключем {film_id} не знайдено.",
+        )
 
     def create(self, film_data: FilmCreate) -> tables.Films:
         film = tables.Films(**film_data.model_dump())
