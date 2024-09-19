@@ -14,11 +14,11 @@ from .models.films import Film, DBDict, uuid4, UUID
 films: DBDict = {}
 
 
-@app.post("/films/", response_model=Film)
-def create_film(film: Film):
-    film.idu4 = uuid4()
-    films[film.idu4] = film
-    return film
+# @app.post("/films/", response_model=Film)
+# def create_film(film: Film):
+#     film.idu4 = uuid4()
+#     films[film.idu4] = film
+#     return film
 
 
 # @app.get("/films/", response_model=DBDict)

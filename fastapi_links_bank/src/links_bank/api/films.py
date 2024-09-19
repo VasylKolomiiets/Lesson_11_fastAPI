@@ -2,7 +2,7 @@
 from fastapi import APIRouter
 from fastapi import Depends
 
-from ..models.films import Film, FilmCategory
+from ..models.films import Film, FilmCategory, FilmCreate
 from ..services.films import FilmsService
 
 
@@ -12,3 +12,9 @@ router = APIRouter(prefix="/films")
 @router.get("/", response_model=list[Film])
 def read_films(film_category: FilmCategory | None = None, service: FilmsService = Depends()):
     return service.get_all(film_category)
+
+# Ми всього лише вказали `film_data: FilmCreate` але FastAPI буде шукати дані 
+# в тілі запиту, бо запит у нас типу `post`
+@router.post("/", response_model=Film)
+def create_film(film_data: FilmCreate, service: FilmsService = Depends()):
+    return service.create(film_data)

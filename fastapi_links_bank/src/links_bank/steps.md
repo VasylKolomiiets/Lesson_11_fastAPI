@@ -48,3 +48,13 @@
       - optional filter parameter added in api processor call
    - services.films.py
       - optional filter parameter added to class metod
+
+### *Create* from CRUD making
+   - app.py 
+      - comment `post` method
+   - api.films.py
+      - create post new `post` metod
+   - models.films.py
+      - class separation for `CREATE` operation realisation
+   - services.films.py
+      - new *post* method adding

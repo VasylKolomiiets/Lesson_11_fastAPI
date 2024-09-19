@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 
 from .. import tables
 from ..database import get_session
-from ..models.films import FilmCategory
+from ..models.films import FilmCategory, FilmCreate
 
 
 class FilmsService:
@@ -20,3 +20,9 @@ class FilmsService:
         if film_category:
             query = query.filter_by(category=film_category)
         return query.all()
+
+    def create(self, film_data: FilmCreate) -> tables.Films:
+        film = tables.Films(**film_data.model_dump())
+        self.session.add(film)
+        self.session.commit()
+        return film

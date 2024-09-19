@@ -24,15 +24,22 @@ class FilmCategory(str, Enum):
     SCIENCE_FICTION = 'Фантастика'
     FANTASY = 'Фентезі'
 
-class Film(BaseModel):
-    idu4: UUID | None = None
+class FilmBase(BaseModel):
     film_title: constr(min_length=2, max_length=20, pattern="^[ а-щА-ЩЬьЮюЯяЇїІіЄєҐґ']*$")
     year: int = Field(..., gt=1900, lt=2500, description="Рік виходу фільму", example=1930)
     category: FilmCategory
     my_rate: conint(ge=0, le=10) = 0
 
+
+class Film(FilmBase):
+    id_4: int
+
     class Settings:
         orm_mode = True
+
+
+class FilmCreate(FilmBase):
+    pass
 
 
 DBDict = NewType("DBDict", dict[UUID, Film])
