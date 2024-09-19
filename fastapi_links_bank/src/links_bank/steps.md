@@ -42,3 +42,9 @@
       into *api.films.py*
    
    Таким чином 'бізнес-логіка' була відокремлена від обробника шляхів ІПЗ (API)
+
+### films filter magic adding
+   - api.films.py
+      - optional filter parameter added in api processor call
+   - services.films.py
+      - optional filter parameter added to class metod
