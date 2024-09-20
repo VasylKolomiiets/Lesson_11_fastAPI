@@ -1,9 +1,8 @@
 from fastapi  import FastAPI
-from fastapi import FastAPI
 from .api import router
 
 app = FastAPI(
-    prefix='Фільми'
+    prefix='ФільмиУ'
 )
 app.include_router(router)
 
