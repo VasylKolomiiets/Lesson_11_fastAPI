@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, Session
 
 from .settings import settings
 
@@ -11,7 +11,7 @@ engine = create_engine(
 )
 
 # we have to commit `by hands` 
-Session = sessionmaker(
+maked_session = sessionmaker(
     engine,
     autocommit=False,
     autoflush=False,
@@ -19,7 +19,7 @@ Session = sessionmaker(
 
 
 def get_session() -> Session:
-    session = Session()
+    session = maked_session()
     try:
         return session
     finally:

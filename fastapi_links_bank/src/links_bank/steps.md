@@ -79,8 +79,16 @@
       - new *put* method adding
       - new *delete* method adding
 
-### Documrntating
+### Documеntating
    - app.py
       - prefix added
    - api.films.py
       - tags added
+
+### minor types corrections
+   - database.py
+      - maked_session = sessionmaker(
+      - from sqlalchemy.orm import sessionmaker, Session
+   - .gitignore
+      - `__pycache__/`
+      - `# *.sqlite3`
